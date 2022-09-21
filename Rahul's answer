@@ -1,0 +1,14 @@
+import re
+
+with open("test.log", "r") as f:
+    lines = f.readlines()
+    with open("result.txt", "a") as out:
+        for line in lines:
+            if re.search("1234567890", line):
+                out.write(line.split("[")[2][:-1]+"\n")
+            elif not line:
+               break
+            else:
+               pass
+    out.close()
+f.close()
